@@ -119,49 +119,49 @@ const Admin = () => {
         <div className="pt-32 pb-24 min-h-screen bg-charcoal">
             <div className="container mx-auto px-4">
                 {/* Top Header */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-12">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
                     <div>
-                        <h1 className="text-4xl font-serif font-bold text-white mb-2 uppercase tracking-tight">Backend Dashboard</h1>
-                        <p className="text-white/40">Managing <span className="text-gold font-bold">{students.length}</span> Active Registrations.</p>
+                        <h1 className="text-3xl sm:text-4xl font-serif font-bold text-white mb-2 uppercase tracking-tight">Backend Dashboard</h1>
+                        <p className="text-white/40 text-sm">Managing <span className="text-gold font-bold">{students.length}</span> Active Registrations.</p>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex flex-wrap items-center gap-3">
                         <button
                             onClick={downloadCSV}
-                            className="bg-white/5 border border-white/10 text-white hover:bg-gold hover:text-charcoal px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-xs transition-all flex items-center gap-2"
+                            className="bg-white/5 border border-white/10 text-white hover:bg-gold hover:text-charcoal px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold uppercase tracking-widest text-[10px] sm:text-xs transition-all flex items-center gap-2 flex-1 sm:flex-none justify-center"
                         >
-                            <Download size={16} /> Export CSV
+                            <Download size={14} sm:size={16} /> Export CSV
                         </button>
                         <button
                             onClick={() => setIsAuthenticated(false)}
-                            className="bg-red-500/10 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white px-6 py-3 rounded-xl font-bold uppercase tracking-widest text-xs transition-all flex items-center gap-2"
+                            className="bg-red-500/10 border border-red-500/20 text-red-500 hover:bg-red-500 hover:text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl font-bold uppercase tracking-widest text-[10px] sm:text-xs transition-all flex items-center gap-2 flex-1 sm:flex-none justify-center"
                         >
-                            <LogOut size={16} /> Logout
+                            <LogOut size={14} sm:size={16} /> Logout
                         </button>
                     </div>
                 </div>
 
                 {/* Stats Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-12">
                     <div className="bg-charcoal-dark p-6 rounded-2xl border border-white/5 shadow-xl">
                         <div className="flex items-center gap-4 mb-4">
                             <div className="bg-blue-500/10 p-3 rounded-lg"><Users className="text-blue-500" /></div>
-                            <span className="text-white/40 uppercase tracking-widest text-xs font-bold">Total Enrolled</span>
+                            <span className="text-white/40 uppercase tracking-widest text-[10px] sm:text-xs font-bold">Total Enrolled</span>
                         </div>
-                        <div className="text-3xl font-bold text-white">{students.length}</div>
+                        <div className="text-2xl sm:text-3xl font-bold text-white">{students.length}</div>
                     </div>
                     <div className="bg-charcoal-dark p-6 rounded-2xl border border-white/5 shadow-xl">
                         <div className="flex items-center gap-4 mb-4">
                             <div className="bg-green-500/10 p-3 rounded-lg"><CreditCard className="text-green-500" /></div>
-                            <span className="text-white/40 uppercase tracking-widest text-xs font-bold">Total Revenue</span>
+                            <span className="text-white/40 uppercase tracking-widest text-[10px] sm:text-xs font-bold">Total Revenue</span>
                         </div>
-                        <div className="text-3xl font-bold text-white">₹{students.reduce((acc, curr) => acc + (curr.status === 'Success' ? parseInt(curr.amount.replace(/,/g, '')) : 0), 0).toLocaleString()}</div>
+                        <div className="text-2xl sm:text-3xl font-bold text-white">₹{students.reduce((acc, curr) => acc + (curr.status === 'Success' ? parseInt(curr.amount?.replace(/,/g, '') || '0') : 0), 0).toLocaleString()}</div>
                     </div>
-                    <div className="bg-charcoal-dark p-6 rounded-2xl border border-white/5 shadow-xl">
+                    <div className="bg-charcoal-dark p-6 rounded-2xl border border-white/5 shadow-xl sm:col-span-2 lg:col-span-1">
                         <div className="flex items-center gap-4 mb-4">
                             <div className="bg-gold/10 p-3 rounded-lg"><UserPlus className="text-gold" /></div>
-                            <span className="text-white/40 uppercase tracking-widest text-xs font-bold">Pending Payments</span>
+                            <span className="text-white/40 uppercase tracking-widest text-[10px] sm:text-xs font-bold">Pending Payments</span>
                         </div>
-                        <div className="text-3xl font-bold text-white">{students.filter(s => s.status === 'Pending Payment').length}</div>
+                        <div className="text-2xl sm:text-3xl font-bold text-white">{students.filter(s => s.status === 'Pending Payment').length}</div>
                     </div>
                 </div>
 

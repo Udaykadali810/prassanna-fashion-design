@@ -12,13 +12,13 @@ const FounderBio = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="lg:w-1/2 relative"
+                        className="lg:w-1/2 relative w-full"
                     >
                         <div className="relative z-10 rounded-2xl overflow-hidden border-2 border-gold/30 shadow-2xl">
                             <img
                                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop"
                                 alt="Smt. Lakshmi Prassanna Gollapudi"
-                                className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700"
+                                className="w-full h-[300px] sm:h-[450px] md:h-[600px] object-cover hover:scale-105 transition-transform duration-700"
                             />
                         </div>
                         {/* Artistic border */}
